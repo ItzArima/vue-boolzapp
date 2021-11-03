@@ -24,7 +24,7 @@
                                 <div class="col-lg-4 user-avatar">
                                     <img src="./assets/img/avatar_io.jpg" alt="" srcset="">
                                 </div>
-                                <div class="col-lg-8 centered">
+                                <div class="col-lg-8 centered username">
                                     <p><strong>Nome Utente</strong></p>
                                 </div>
                             </div>
@@ -103,9 +103,9 @@
                         </div> 
                     </div>
                     <div class="row chat">
-                        <div class="row chat-display">
+                        <div class="chat-display">
                             <div v-for="(message, i) in contacts[index].messages" :id="message.status" class="message">
-                                <div class="col-lg-4 message-container">
+                                <div class="message-container">
                                     <p>{{message.text}}</p>
                                     <p class="date">{{message.date}}</p>
                                 </div>

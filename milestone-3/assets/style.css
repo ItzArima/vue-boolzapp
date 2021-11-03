@@ -180,23 +180,26 @@ p{
 
 }
 
-
 .message{
-    height: 50px;
+    margin: 3rem;
 }
 
 #sent .message-container{
     background-color: #d5f9ba;
     border-radius: 15px;
-    padding: 0.25rem;
+    padding: 0.5rem;
 }
 
 #received .message-container{
     background-color: white;
     border-radius: 15px;
-    padding: 0.25rem;
+    padding: 0.5rem;
 }
 
 .date{
     font-size: x-small;
+}
+
+.username{
+    padding-left: 3rem;
 }

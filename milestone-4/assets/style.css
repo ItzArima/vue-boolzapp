@@ -52,6 +52,7 @@
     margin: 3rem auto;
     display: flex;
     min-height: 850px;
+    max-height: 850px;
 }
 
 .noti-icon{
@@ -136,10 +137,11 @@ p{
 }
 
 .chat-display{
-    flex-grow: 1;
+    height: 90%;
     margin: 0;
     padding: 0;
     background-image: url("./img/mine.jpg");
+    overflow: auto;
 }
 
 .chat-input{
@@ -212,4 +214,22 @@ p{
 
 #hidden{
     display: none;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 5px;
+}
+   
+::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 5px;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
 }

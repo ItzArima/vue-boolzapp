@@ -49,6 +49,7 @@
     position: absolute;
     background-color: white;
     margin: 1rem auto;
+    display: flex;
 }
 
 .noti-icon{
@@ -104,4 +105,64 @@ p{
 .contacts .row{
     display: flex;
     border-bottom: 1px solid #d6d6d6;;
+}
+
+.chat-user img{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+.chat-info , .user{
+    height: 145px;
+    background-color: #eaeaea;
+    padding: 0;
+    margin: 0;
+}
+
+.right-col {
+    width: 100%;
+}
+
+.chat{
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 145px);
+    margin: 0;
+    padding: 0;
+}
+
+.chat-display{
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    background-image: url("./img/mine.jpg");
+}
+
+.chat-input{
+    height: 10%;
+    margin: 0;
+    padding: 0.5rem 0;
+    background-color: #f3eeea;
+}
+
+.chat-input div{
+    margin: 0;
+    padding: 0;
+}
+
+.smiles , .audio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+}
+
+.message-input input{
+    height: 100%;
+    width: 100%;
+}
+
+.chat-info i,.icons i{
+    font-size: xx-large;
 }

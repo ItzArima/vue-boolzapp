@@ -48,7 +48,7 @@
 .app-container{
     position: absolute;
     background-color: white;
-    margin: 1rem auto;
+    margin: 3rem auto;
     display: flex;
 }
 
@@ -165,4 +165,33 @@ p{
 
 .chat-info i,.icons i{
     font-size: xx-large;
+}
+
+#received{
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+#sent{
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+
+.message{
+    height: 50px;
+}
+
+#sent .message-container{
+    background-color: #d5f9ba;
+    border-radius: 15px;
+    padding: 0.25rem;
+}
+
+#received .message-container{
+    background-color: white;
+    border-radius: 15px;
+    padding: 0.25rem;
 }

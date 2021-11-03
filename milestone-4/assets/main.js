@@ -125,3 +125,29 @@ document.getElementById("new").addEventListener("keyup",function(){
 })
 
 
+document.getElementById("search").addEventListener("keydown",function(){
+    setTimeout(function(){
+        var insertion = document.getElementById("search").value
+        var insert = insertion.toUpperCase()
+        var contactsNumber = app.contacts.length
+        var insertLenght = insert.length      
+        for (i = 0; i < app.contacts.length; i++) {
+            var name = app.contacts[i].name
+            let compare =""
+            for(let j=0;j<insertLenght;j++){
+                letterGeneric = name.charAt(j)
+                letter = letterGeneric.toUpperCase()
+                compare += letter
+            }; 
+            var contacts = document.getElementsByClassName("contact")
+            if(insert == compare)  {
+                console.log(compare);
+                console.log(name);
+                contacts[i].id="shown"
+            }
+            else{
+                contacts[i].id = "hidden"
+            }            
+        } 
+    },10)
+})

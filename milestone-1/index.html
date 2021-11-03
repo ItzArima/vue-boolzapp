@@ -11,12 +11,12 @@
 </head>
 <body>
     <main>
-        <div class="main-container">
+        <div class="main-container col-12">
             <div class="background">
                 <div class="row bg-1"></div>
                 <div class="row bg-2"></div>
             </div>
-            <div class="app-container col-lg-10">
+            <div id="root" class="app-container col-lg-10">
                 <div class="left-col col-lg-4">
                     <div class="row centered">
                         <div class="col-lg-6">
@@ -58,8 +58,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <input type="text" placeholder="">
+                    <div class="row search">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                        <div class="search-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <div class="row contacts">
+                        <div v-for="(user, index) in contacts" class="col-12">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <img :src="user.avatar" alt="" srcset="">
+                                </div>
+                                <div class="col-lg-9">    
+                                    <p><strong>{{user.name}}</strong></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="right-col"></div>

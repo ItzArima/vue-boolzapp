@@ -102,7 +102,7 @@ const app  = new Vue({
             this.contacts[this.index].messages.push(message)
             reset = document.getElementById("new")
             reset.value = ""
-        }
+        },
     }
 })
 

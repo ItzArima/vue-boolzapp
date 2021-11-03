@@ -107,6 +107,7 @@
                             <div v-for="(message, i) in contacts[index].messages" :id="message.status" class="message">
                                 <div class="col-lg-4 message-container">
                                     <p>{{message.text}}</p>
+                                    <p class="date">{{message.date}}</p>
                                 </div>
                             </div>
                         </div>
@@ -126,6 +127,7 @@
             </div>
         </div>
     </main>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="./assets/main.js"></script>
 </body>

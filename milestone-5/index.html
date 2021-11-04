@@ -109,8 +109,8 @@
                     </div>
                     <div class="row chat">
                         <div class="chat-display" id="displayMessages">
-                            <div @click="actions(i)" v-for="(message, i) in contacts[index].messages" :id="message.status" :class="message.status" class = "message">
-                                <div class="message-container">
+                            <div v-for="(message, i) in contacts[index].messages" :id="message.status" :class="message.status" class = "message">
+                                <div @click="actions(i)" class="message-container">
                                     <p>{{message.text}}</p>
                                     <p class="date">{{message.date}}</p>
                                 </div>

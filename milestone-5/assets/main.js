@@ -114,6 +114,7 @@ const app  = new Vue({
                 this.contacts[this.index].messages.push(message)
                 reset = document.getElementById("new")
                 reset.value = "",
+                lastMessage()
                 setTimeout(function(){
                     var replyDate=dayjs().format('DD/MM/YYYY hh:mm:ss')
                     var reply = {
@@ -124,6 +125,7 @@ const app  = new Vue({
                     app.contacts[app.index].messages.push(reply)
                 } ,3000)
                 setTimeout(setData,3010)
+                setTimeout(lastMessage,3010)
             }    
         },
         actions(i){

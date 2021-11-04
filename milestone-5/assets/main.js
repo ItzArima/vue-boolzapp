@@ -26,7 +26,8 @@ const app  = new Vue({
                     status: 'received'
                     }
                 ],
-                access:''
+                lastSent:'',
+                lastReceived:''
             },
             {
                 name: 'Fabio',
@@ -49,7 +50,8 @@ const app  = new Vue({
                     status: 'sent'
                     }
                 ],
-                access:''
+                lastSent:'',
+                lastReceived:''
             },
             {
                 name: 'Samuele',
@@ -72,7 +74,8 @@ const app  = new Vue({
                     status: 'received'
                     }
                 ],
-                access:''
+                lastSent:'',
+                lastReceived:''
             },
             {
                 name: 'Luisa',
@@ -90,7 +93,8 @@ const app  = new Vue({
                     status: 'received'
                     }
                 ],
-                access:''
+                lastSent:'',
+                lastReceived:''
             },
         ]    
     },
@@ -118,6 +122,7 @@ const app  = new Vue({
                 }
                 app.contacts[app.index].messages.push(reply)
             } ,3000)
+            setTimeout(setData,3010)
         },
         actions(i){
             if(this.deleted == 0){
@@ -186,25 +191,26 @@ document.getElementById("search").addEventListener("keydown",function(){
     },10)
 })
 
-var userDate = document.getElementsByClassName("contact-info")
-for(let i =0;i<userDate.length;i++){
-    let sent = ""
-    let received = ""
-    var messagesNumber  = app.contacts[i].messages.length
-    console.log(messagesNumber);
-    for(let j=0;j<messagesNumber;j++){
-        if(app.contacts[i].messages[j].status == "sent"){
-            sent = app.contacts[i].messages[j].date
+setData();
+
+function setData(){
+    var userDate = document.getElementsByClassName("contact-info")
+    for(let i =0;i<userDate.length;i++){
+        let sent = ""
+        let received = ""
+        var messagesNumber  = app.contacts[i].messages.length
+        console.log(messagesNumber);
+        for(let j=0;j<messagesNumber;j++){
+            if(app.contacts[i].messages[j].status == "sent"){
+                sent = app.contacts[i].messages[j].date
+            }
+            else{
+                received = app.contacts[i].messages[j].date
+            }
         }
-        else{
-            received = app.contacts[i].messages[j].date
-        }
+        console.log(sent);
+        console.log(received);
+        app.contacts[i].lastSent = sent;
+        app.contacts[i].lastReceived = received
     }
-    console.log(sent);
-    console.log(received);
-    userDate[i].innerHTML = `
-        <p>Last received message on : ${received}</p>
-        <p>Last sent message on: ${sent}</p>
-    `
-    app.contacts[i].access = sent;
-}
+}    

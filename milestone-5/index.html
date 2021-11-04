@@ -73,7 +73,8 @@
                                 <div class="col-lg-9">    
                                     <p><strong>{{user.name}}</strong></p>
                                     <div class="contact-info">
-
+                                        <p>Last received message: {{user.lastReceived}}</p>
+                                        <p>Last sent message: {{user.lastSent}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +93,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <p>Ultimo accesso oggi alle </p>
-                                    <span>{{contacts[index].access}}</span>
+                                    <span>{{contacts[index].lastSent}}</span>
                                 </div>
                             </div>
                         </div>   

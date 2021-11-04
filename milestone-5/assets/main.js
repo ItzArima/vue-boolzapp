@@ -126,6 +126,8 @@ const app  = new Vue({
                 } ,3000)
                 setTimeout(setData,3010)
                 setTimeout(lastMessage,3010)
+                setTimeout(scroll,10)
+                setTimeout(scroll,3010)
             }    
         },
         actions(i){
@@ -242,3 +244,8 @@ function lastMessage(){
             `
     }
 }        
+
+function scroll(){
+    var messageWindow = document.getElementById("displayMessages")
+    messageWindow.scrollBy(0,1000)
+}

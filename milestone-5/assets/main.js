@@ -104,25 +104,27 @@ const app  = new Vue({
         },
         newMessage(){
             var input = document.getElementById("new").value
-            var date = dayjs().format('DD/MM/YYYY hh:mm:ss')            
-            var message = {
-                date: date,
-                text: input,
-                status :'sent'
-            }
-            this.contacts[this.index].messages.push(message)
-            reset = document.getElementById("new")
-            reset.value = "",
-            setTimeout(function(){
-                var replyDate=dayjs().format('DD/MM/YYYY hh:mm:ss')
-                var reply = {
-                    date: replyDate,
-                    text: 'ok',
-                    status:'received'
+            if (input != ""){
+                var date = dayjs().format('DD/MM/YYYY hh:mm:ss')            
+                var message = {
+                    date: date,
+                    text: input,
+                    status :'sent'
                 }
-                app.contacts[app.index].messages.push(reply)
-            } ,3000)
-            setTimeout(setData,3010)
+                this.contacts[this.index].messages.push(message)
+                reset = document.getElementById("new")
+                reset.value = "",
+                setTimeout(function(){
+                    var replyDate=dayjs().format('DD/MM/YYYY hh:mm:ss')
+                    var reply = {
+                        date: replyDate,
+                        text: 'ok',
+                        status:'received'
+                    }
+                    app.contacts[app.index].messages.push(reply)
+                } ,3000)
+                setTimeout(setData,3010)
+            }    
         },
         actions(i){
             if(this.deleted == 0){

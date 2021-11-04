@@ -134,8 +134,10 @@ const app  = new Vue({
                     this.actionReset = 1
                 }
                 else{
-                    message[i].id="hidden"
-                    this.actionReset = 0
+                    for(let i = 0;i<message.length;i++){
+                        message[i].id="hidden"
+                        this.actionReset = 0
+                    }    
                 }
                 console.log(this.actionReset);
             } 
@@ -154,6 +156,14 @@ const app  = new Vue({
         deleteMessage(i){
             this.contacts[this.index].messages.splice(i , 1)
             this.deleted = 1;
+            this.actionReset = 0
+            var messages = this.contacts[this.index].messages.length
+            setTimeout(function(){
+                for(i=0;i<messages;i++){
+                    var actions = document.getElementsByClassName("message-actions")
+                    actions[i].id = "hidden"
+                }
+            },10)    
         }
     }
 })

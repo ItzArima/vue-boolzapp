@@ -225,4 +225,18 @@ function setData(){
         app.contacts[i].lastSent = sent;
         app.contacts[i].lastReceived = received
     }
-}    
+}   
+
+lastMessage();
+
+function lastMessage(){
+    for(let k=0;k<app.contacts.length;k++){    
+        var messagesNumber  = app.contacts[k].messages.length
+        var span = document.getElementsByClassName("lastMessage")
+        var last = messagesNumber - 1
+        span[k].innerHTML = `
+                <p>last message: ${app.contacts[k].messages[last].text}</p>
+                <p>on ${app.contacts[k].messages[last].date}</p>
+            `
+    }
+}        

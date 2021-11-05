@@ -131,23 +131,23 @@ const app  = new Vue({
             }    
         },
         actions(i){
-            if(this.deleted == 0){
-                var message = document.getElementsByClassName("message-actions")
-                if(this.actionReset == 0){
-                    message[i].id = "shown"
-                    this.actionReset = 1
-                }
-                else{
-                    for(let i = 0;i<message.length;i++){
-                        message[i].id="hidden"
-                        this.actionReset = 0
-                    }    
-                }
-                console.log(this.actionReset);
-            } 
+            var actions = document.getElementsByClassName("message-actions")
+            var message = document.getElementsByClassName("message-container")
+            if(actions[i].id == "shown"){
+                actions[i].id = "hidden"
+                message[i].id = "bright"
+                clearTimeout(timer)
+            }
             else{
-                this.deleted = 0;
-            }   
+                clearTimeout(timer)
+                for(let k = 0;k<this.contacts[this.index].messages.length;k++){
+                    actions[k].id = "hidden"
+                    message[k].id = "bright"
+                }
+                actions[i].id = "shown"
+                message[i].id = "dark"
+                actionTimer()
+            }    
         },
         informations(i){
             var date =this.contacts[this.index].messages[i].date
@@ -159,15 +159,13 @@ const app  = new Vue({
         },
         deleteMessage(i){
             this.contacts[this.index].messages.splice(i , 1)
-            this.deleted = 1;
-            this.actionReset = 0
             var messages = this.contacts[this.index].messages.length
             setTimeout(function(){
                 for(i=0;i<messages;i++){
                     var actions = document.getElementsByClassName("message-actions")
                     actions[i].id = "hidden"
                 }
-            },10)    
+            },500)    
         }
     }
 })
@@ -248,4 +246,17 @@ function lastMessage(){
 function scroll(){
     var messageWindow = document.getElementById("displayMessages")
     messageWindow.scrollBy(0,1000)
+}
+
+var timer;
+
+function actionTimer(){
+    timer = setTimeout(function(){
+        var actions = document.getElementsByClassName("message-actions")
+        var message = document.getElementsByClassName("message-container")
+        for(let k = 0;k<app.contacts[app.index].messages.length;k++){
+            actions[k].id = "hidden"
+            message[k].id = "bright"
+        }
+    },4000)    
 }

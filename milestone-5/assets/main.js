@@ -2,8 +2,6 @@ const app  = new Vue({
     el : '#root',
     data: {
         index: 0,
-        actionReset: 0,
-        deleted:0,
         contacts: [
             {
                 name: 'Michele',

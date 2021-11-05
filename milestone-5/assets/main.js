@@ -99,6 +99,7 @@ const app  = new Vue({
     methods:{
         display(i){
             this.index = i
+            setTimeout(scroll,10);
         },
         newMessage(){
             var input = document.getElementById("new").value
